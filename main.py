@@ -9,7 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import io
 from collections import defaultdict
-from AlexAi import Node, Tree  # Asegúrate de que AlexAi está en tu PYTHONPATH
+from AlexAi import Node, Tree  # Importar las clases Node y Tree
+from utils import process_geometry # Importar la función process_geometry
 
 ox.config(use_cache=True, log_console=True)
 
@@ -33,7 +34,7 @@ class MapRequest(BaseModel):
 
 # Función para construir el grafo y las estructuras de datos
 def build_graph(city, transport_mode):
-    G = ox.graph_from_place(city, network_type=transport_mode, simplify=False)
+    G = ox.graph_from_place(city, network_type=transport_mode, simplify=True)
     gdf_nodes, gdf_edges = ox.graph_to_gdfs(G)
 
     adjacents = defaultdict(list)
@@ -44,9 +45,13 @@ def build_graph(city, transport_mode):
     node_coords = {node: data['geometry'] for node, data in gdf_nodes.to_dict('index').items()}
     return G, adjacents, node_coords
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
 # Endpoint para renderizar el mapa
 @app.get("/render_map")
-async def render_map(city: str, transport_mode: str, start_lat: float, start_lon: float, end_lat: float, end_lon: float):
+async def render_map(city: str = 'Envigado, Antioquia, Colombia', transport_mode: str = 'drive'):
     G, adjacents, node_coords = build_graph(city, transport_mode)
     try:
         start_node = ox.nearest_nodes(G, Y=start_lat, X=start_lon)
@@ -145,6 +150,3 @@ async def render_map_with_data(data: MapRequest = Body(...)):
     buf.seek(0)
     return StreamingResponse(buf, media_type="image/png")
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
