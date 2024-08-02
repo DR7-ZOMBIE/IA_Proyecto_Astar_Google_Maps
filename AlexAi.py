@@ -4,7 +4,7 @@ from IPython.display import Image
 
 
 class Node ():
-    def __init__(self, state, operators, operator=None, parent=None, objective=None):
+    def __init__(self, state, operators,adjacents=None,node_coords=None,end_node=None ,operator=None, parent=None, objective=None):
         self.state = state
         self.children = []
         self.operators = operators
@@ -13,14 +13,18 @@ class Node ():
         self.parent = parent
         self.objective = objective
 
+        self.adjacents = adjacents
+        self.node_coords = node_coords
+        self.end_node = end_node
+
         self.acomulatedCost = 0 if parent is None else parent.acomulatedCost + self.cost()
         self.value = parent.value + '-' + \
             str(operator) if parent is not None else "root"
         self.level = 0 if parent is None else parent.level + 1
 
     def add_child(self, state, operator):
-        node = type(self)(state=state, operator=operator, parent=self,
-                          operators=self.operators)
+        node = type(self)(state=state, operator=operator, adjacents=self.adjacents ,parent=self,
+                          operators=self.operators, node_coords=self.node_coords, end_node=self.end_node)
         self.children.append(node)
         return node
 
