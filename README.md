@@ -1,6 +1,17 @@
 Proyecto de Rutas con FastAPI
-Este proyecto utiliza FastAPI para crear una API que permite calcular y visualizar rutas en un mapa. Utiliza datos de OpenStreetMap y técnicas de búsqueda de caminos para encontrar la mejor ruta entre dos puntos.
+Este proyecto utiliza FastAPI para crear una API que permite calcular y visualizar rutas en un mapa. Se basa en datos de OpenStreetMap y utiliza técnicas de búsqueda de caminos para encontrar la mejor ruta entre dos puntos.
 
+Tabla de Contenidos
+Requisitos
+Instalación
+Estructura del Proyecto
+Uso
+Ejecutar el Servidor
+Endpoints
+Ejemplo de Uso
+Notas
+Contribuciones
+Licencia
 Requisitos
 Antes de ejecutar el proyecto, asegúrate de tener Python 3.7 o superior instalado en tu sistema.
 
@@ -39,18 +50,20 @@ Esto iniciará el servidor en http://127.0.0.1:8000 con recarga automática dura
 
 Endpoints
 GET /
-
 Descripción: Endpoint de prueba que devuelve un mensaje de bienvenida.
-Respuesta: {"message": "Hello World"}
+Respuesta:
+json
+Copiar código
+{
+  "message": "Hello World"
+}
 GET /render_map
-
 Descripción: Renderiza un mapa de la ciudad especificada con la ruta calculada entre dos puntos.
 Parámetros:
 city (opcional): Ciudad para la cual se debe renderizar el mapa (por defecto 'Envigado, Antioquia, Colombia').
 transport_mode (opcional): Modo de transporte para el cálculo de rutas (por defecto 'drive').
 Respuesta: Imagen PNG del mapa con la ruta.
 POST /render_map_with_data
-
 Descripción: Renderiza un mapa utilizando datos proporcionados en el cuerpo de la solicitud.
 Cuerpo de la Solicitud:
 json
@@ -81,4 +94,3 @@ Las contribuciones son bienvenidas. Por favor, abre un problema o envía una sol
 
 Licencia
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
-
