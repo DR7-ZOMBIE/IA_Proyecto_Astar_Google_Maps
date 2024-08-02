@@ -56,49 +56,7 @@ Copiar código
 uvicorn main:app --reload
 Esto iniciará el servidor en http://127.0.0.1:8000 con recarga automática durante el desarrollo.
 
-Endpoints
-GET /
-Descripción: Endpoint de prueba que devuelve un mensaje de bienvenida.
 
-Respuesta:
-
-json
-Copiar código
-{
-  "message": "Hello World"
-}
-GET /render_map
-Descripción: Renderiza un mapa de la ciudad especificada con la ruta calculada entre dos puntos.
-Parámetros:
-city (opcional): Ciudad para la cual se debe renderizar el mapa (por defecto 'Envigado, Antioquia, Colombia').
-transport_mode (opcional): Modo de transporte para el cálculo de rutas (por defecto 'drive').
-Respuesta: Imagen PNG del mapa con la ruta.
-POST /render_map_with_data
-Descripción: Renderiza un mapa utilizando datos proporcionados en el cuerpo de la solicitud.
-
-Cuerpo de la Solicitud:
-
-json
-Copiar código
-{
-  "city_selected": "Nombre de la Ciudad",
-  "init_node": {"lat": <latitud_inicial>, "lon": <longitud_inicial>},
-  "final_node": {"lat": <latitud_final>, "lon": <longitud_final>}
-}
-Respuesta: Imagen PNG del mapa con la ruta.
-
-Ejemplo de Uso
-Para probar el endpoint /render_map_with_data, puedes usar curl o herramientas como Postman para enviar una solicitud POST con los datos requeridos.
-
-Ejemplo con curl:
-
-bash
-Copiar código
-curl -X POST "http://127.0.0.1:8000/render_map_with_data" -H "Content-Type: application/json" -d '{
-  "city_selected": "Envigado, Antioquia, Colombia",
-  "init_node": {"lat": 6.1675, "lon": -75.5976},
-  "final_node": {"lat": 6.1690, "lon": -75.5950}
-}'
 📝 Notas
 Asegúrate de que final_df.json esté presente en el directorio raíz del proyecto para que el código funcione correctamente.
 Si encuentras algún error, revisa los registros del servidor para obtener más detalles.
