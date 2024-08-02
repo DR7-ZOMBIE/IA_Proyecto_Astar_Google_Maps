@@ -1,24 +1,35 @@
-🌍 Proyecto de Rutas con FastAPI
-Este proyecto utiliza FastAPI para crear una API que permite calcular y visualizar rutas en un mapa. Se basa en datos de OpenStreetMap y utiliza técnicas de búsqueda de caminos para encontrar la mejor ruta entre dos puntos.
+# 🌍 Proyecto de Rutas con FastAPI
 
-📑 Tabla de Contenidos
-Requisitos
-Instalación
-Estructura del Proyecto
-Uso
-Ejecutar el Servidor
-Endpoints
-Ejemplo de Uso
-Notas
-Contribuciones
-Licencia
-📋 Requisitos
-Antes de ejecutar el proyecto, asegúrate de tener Python 3.7 o superior instalado en tu sistema.
+Este proyecto utiliza **FastAPI** para crear una API que permite calcular y visualizar rutas en un mapa. Se basa en datos de **OpenStreetMap** y utiliza técnicas de búsqueda de caminos para encontrar la mejor ruta entre dos puntos.
 
-⚙️ Instalación
-Clona el repositorio (si aún no lo has hecho):
-bash
-Copiar código
+---
+
+## 📑 Tabla de Contenidos
+
+1. [Requisitos](#-requisitos)
+2. [Instalación](#️-instalación)
+3. [Estructura del Proyecto](#-estructura-del-proyecto)
+4. [Uso](#-uso)
+   - [Ejecutar el Servidor](#ejecutar-el-servidor)
+   - [Endpoints](#endpoints)
+   - [Ejemplo de Uso](#ejemplo-de-uso)
+5. [Notas](#-notas)
+6. [Contribuciones](#-contribuciones)
+7. [Licencia](#-licencia)
+
+---
+
+## 📋 Requisitos
+
+Antes de ejecutar el proyecto, asegúrate de tener **Python 3.7** o superior instalado en tu sistema.
+
+---
+
+## ⚙️ Instalación
+
+### Clona el repositorio (si aún no lo has hecho):
+
+```bash
 git clone <URL_DEL_REPOSITORIO>
 cd <NOMBRE_DEL_REPOSITORIO>
 Crea y activa un entorno virtual:
@@ -48,7 +59,9 @@ Esto iniciará el servidor en http://127.0.0.1:8000 con recarga automática dura
 Endpoints
 GET /
 Descripción: Endpoint de prueba que devuelve un mensaje de bienvenida.
+
 Respuesta:
+
 json
 Copiar código
 {
@@ -62,7 +75,9 @@ transport_mode (opcional): Modo de transporte para el cálculo de rutas (por def
 Respuesta: Imagen PNG del mapa con la ruta.
 POST /render_map_with_data
 Descripción: Renderiza un mapa utilizando datos proporcionados en el cuerpo de la solicitud.
+
 Cuerpo de la Solicitud:
+
 json
 Copiar código
 {
@@ -71,6 +86,7 @@ Copiar código
   "final_node": {"lat": <latitud_final>, "lon": <longitud_final>}
 }
 Respuesta: Imagen PNG del mapa con la ruta.
+
 Ejemplo de Uso
 Para probar el endpoint /render_map_with_data, puedes usar curl o herramientas como Postman para enviar una solicitud POST con los datos requeridos.
 
@@ -91,3 +107,15 @@ Las contribuciones son bienvenidas. Por favor, abre un problema o envía una sol
 
 📄 Licencia
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
+
+markdown
+Copiar código
+
+### Key Features:
+- **Headings and Emojis:** For section titles to make them stand out and engage the reader.
+- **Code Blocks:** For commands and JSON snippets to improve clarity and readability.
+- **Table of Contents:** Quick navigation to various sections.
+- **Section Separators:** Horizontal lines to distinguish different sections and improve readability.
+- **Detailed Instructions:** Clear step-by-step guide for setup, usage, and contribution.
+
+You can replace `<URL_DEL_REPOSITORIO>` and `<NOMBRE_DEL_REPOSITORIO>` with the actual URL 
