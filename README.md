@@ -1,7 +1,7 @@
-Proyecto de Rutas con FastAPI
+🌍 Proyecto de Rutas con FastAPI
 Este proyecto utiliza FastAPI para crear una API que permite calcular y visualizar rutas en un mapa. Se basa en datos de OpenStreetMap y utiliza técnicas de búsqueda de caminos para encontrar la mejor ruta entre dos puntos.
 
-Tabla de Contenidos
+📑 Tabla de Contenidos
 Requisitos
 Instalación
 Estructura del Proyecto
@@ -12,34 +12,31 @@ Ejemplo de Uso
 Notas
 Contribuciones
 Licencia
-Requisitos
+📋 Requisitos
 Antes de ejecutar el proyecto, asegúrate de tener Python 3.7 o superior instalado en tu sistema.
 
-Instalación
+⚙️ Instalación
 Clona el repositorio (si aún no lo has hecho):
-
 bash
 Copiar código
 git clone <URL_DEL_REPOSITORIO>
 cd <NOMBRE_DEL_REPOSITORIO>
 Crea y activa un entorno virtual:
-
 bash
 Copiar código
 python -m venv env
 source env/bin/activate  # En Windows usa `env\Scripts\activate`
 Instala las dependencias:
-
 bash
 Copiar código
 pip install fastapi uvicorn pydot ipython pandas matplotlib osmnx pydantic aiohttp requests graphviz
-Estructura del Proyecto
+📁 Estructura del Proyecto
 El proyecto tiene la siguiente estructura:
 
 main.py: El archivo principal que contiene la implementación de FastAPI.
 AlexAi.py: Define las clases Node y Tree utilizadas para el algoritmo de búsqueda de caminos.
 final_df.json: Archivo JSON con datos necesarios para las operaciones (cargado en el código).
-Uso
+🚀 Uso
 Ejecutar el Servidor
 Para ejecutar el servidor FastAPI, usa el siguiente comando:
 
@@ -86,11 +83,11 @@ curl -X POST "http://127.0.0.1:8000/render_map_with_data" -H "Content-Type: appl
   "init_node": {"lat": 6.1675, "lon": -75.5976},
   "final_node": {"lat": 6.1690, "lon": -75.5950}
 }'
-Notas
+📝 Notas
 Asegúrate de que final_df.json esté presente en el directorio raíz del proyecto para que el código funcione correctamente.
 Si encuentras algún error, revisa los registros del servidor para obtener más detalles.
-Contribuciones
+🤝 Contribuciones
 Las contribuciones son bienvenidas. Por favor, abre un problema o envía una solicitud de extracción para discutir cambios o mejoras.
 
-Licencia
+📄 Licencia
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
